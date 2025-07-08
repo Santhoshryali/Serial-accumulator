@@ -60,14 +60,14 @@ module accumulator #(parameter N = 8)(
                 if (bit_index == N-1) begin
                     temp_sum_bits[N] <= cout_bit;
                     is_adding <= 0;
-                    sum_ready <= 1;  // ✨ set flag, defer sum_out assignment
+                    sum_ready <= 1;  
                 end 
                 else begin
                     bit_index <= bit_index + 1;
                 end
             end 
             else if (sum_ready) begin
-                sum_out <= temp_sum_bits[N-1:0];  // ✨ now it's safe to assign
+                sum_out <= temp_sum_bits[N-1:0];  
                 done <= 1;
                 sum_ready <= 0;
             end
